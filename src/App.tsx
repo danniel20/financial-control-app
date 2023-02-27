@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <Resume income={0.0} expense={0.0} total={0.0} />
+      <Resume income={"0.0"} expense={"0.0"} total={"0.0"} />
       <Form />
       <GlobalStyles />
     </>

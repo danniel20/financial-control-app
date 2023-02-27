@@ -4,7 +4,7 @@ import { Container, Header, HeaderTitle, Total } from "./styles";
 type ResumeItemProps = {
   title: string;
   Icon: IconType;
-  value: number;
+  value: string;
 };
 
 export const ResumeItem = ({ title, Icon, value }: ResumeItemProps) => {

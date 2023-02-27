@@ -7,9 +7,9 @@ import {
 } from "react-icons/fa";
 
 type ResumeProps = {
-  income: number;
-  expense: number;
-  total: number;
+  income: string;
+  expense: string;
+  total: string;
 };
 
 export const Resume = ({ income, expense, total }: ResumeProps) => {

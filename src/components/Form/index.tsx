@@ -10,14 +10,14 @@ import {
 
 export const Form = () => {
   const [desc, setDesc] = useState("");
-  const [amount, setAmount] = useState(0.0);
+  const [amount, setAmount] = useState("0.0");
   const [isExpense, setExpense] = useState(false);
 
   const handleSalve = () => {
     if (!desc || !amount) {
       alert("Informe a descrição e o valor!");
       return;
-    } else if (amount < 1.0) {
+    } else if (parseFloat(amount) < 1.0) {
       alert("O valor tem que ser positivo!");
       return;
     }
@@ -39,7 +39,7 @@ export const Form = () => {
         <Input
           value={amount}
           type="number"
-          onChange={(e) => setAmount(parseFloat(e.target.value))}
+          onChange={(e) => setAmount(e.target.value)}
         />
       </InputContent>
 
