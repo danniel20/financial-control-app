@@ -17,8 +17,9 @@ export const GlobalStyles = createGlobalStyle`
       /* 1rem = 10px */
 
   body {
-    margin: 100wv;
-    background-color: #f2f2f2;
+    height: 100vw;
+    background: #dedddd;
+    background: linear-gradient(180deg, #2c6058 0%, #dedddd 0%, #f2f2f2 95%);
     font-family: Poppins, sans-serif;
     font-size: 1.6rem;
   }
