@@ -16,10 +16,12 @@ yarn install
 yarn dev
 ```
 
-The application is available at `http://localhost:3000`.
+The application is available at `http://localhost:5173`.
 
 ## Using Docker
 
 ```bash
 docker compose up -d
 ```
+
+The application is available at `http://localhost:3000`.
