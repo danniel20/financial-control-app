@@ -13,7 +13,7 @@ cd financial-control-app
 yarn install
 
 # run the project
-yarn serve
+yarn dev
 ```
 
 The application is available at `http://localhost:3000`.
