@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meudeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: financialapp
+          image: danniel20/financial-control-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: financialapp-service
+spec:
+  selector:
+    app: web
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 3000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: financialapp-service
+                port:
+                  number: 80
+### 1) Usando k3d para criar cluster kubernetes com service loadbalance
+###    e mapea a porta interna do container para acesso externo. Ex: http://localhost:8081
+
+# k3d cluster create meucluster -p "8081:80@loadbalancer"
+
+### 2) Aplica as configurações do arquivo para o cluster
+
+# kubectl apply -f deployment.yml
+
+### 3) Atualizando cluster quando uma nova atualização na imagem
+
+# adcionar a linha "imagePullPolicy: Always" ao container e após atualização da imagem executar o comando:
+# kubectl rollout restart deploy <NAME-DEPLOYMENT>
