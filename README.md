@@ -16,7 +16,7 @@ yarn install
 yarn serve
 ```
 
-The backend is available at `http://localhost:3000`.
+The application is available at `http://localhost:3000`.
 
 ## Using Docker
 
